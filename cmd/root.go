@@ -158,7 +158,8 @@ user created with the credentials from options "username" and "password".`,
 			checkErr(err)
 			listener, err = tls.Listen("tcp", adr, &tls.Config{
 				MinVersion:   tls.VersionTLS12,
-				Certificates: []tls.Certificate{cer}},
+				Certificates: []tls.Certificate{cer},
+				NextProtos: []string{"h2", "http/1.1"}},
 			)
 			checkErr(err)
 		default:
