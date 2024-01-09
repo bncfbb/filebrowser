@@ -93,6 +93,27 @@
           <div class="share__box__element">
             <strong>{{ $t("prompts.size") }}:</strong> {{ humanSize }}
           </div>
+          <div class="share__box__element share__box__center" v-if="!req.isDir">
+            <a target="_blank" :href="link" class="button button--flat">
+              <div>
+                <i class="material-icons">file_download</i
+                >{{ $t("buttons.download") }}
+              </div>
+            </a>
+            <a
+              target="_blank"
+              :href="inlineLink"
+              class="button button--flat"
+            >
+              <div>
+                <i class="material-icons">open_in_new</i
+                >{{ $t("buttons.openFile") }}
+              </div>
+            </a>
+          </div>
+          <div class="share__box__element share__box__center" v-if="!req.isDir">
+            <qrcode-vue :value="link" size="200" level="M"></qrcode-vue>
+          </div>
         </div>
         <div
           v-if="req.isDir && req.items.length > 0"
@@ -167,6 +188,7 @@ import HeaderBar from "@/components/header/HeaderBar";
 import Action from "@/components/header/Action";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Errors from "@/views/Errors";
+import QrcodeVue from "qrcode.vue";
 import Item from "@/components/files/ListingItem";
 import Clipboard from "clipboard";
 
@@ -177,6 +199,7 @@ export default {
     Action,
     Breadcrumbs,
     Item,
+    QrcodeVue,
     Errors,
   },
   data: () => ({
