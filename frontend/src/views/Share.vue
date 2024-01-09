@@ -167,7 +167,6 @@ import HeaderBar from "@/components/header/HeaderBar";
 import Action from "@/components/header/Action";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Errors from "@/views/Errors";
-import QrcodeVue from "qrcode.vue";
 import Item from "@/components/files/ListingItem";
 import Clipboard from "clipboard";
 
@@ -178,7 +177,6 @@ export default {
     Action,
     Breadcrumbs,
     Item,
-    QrcodeVue,
     Errors,
   },
   data: () => ({
